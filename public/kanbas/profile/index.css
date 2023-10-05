@@ -1,0 +1,121 @@
+.wd-fixed-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wd-fixed-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.wd-nav-item {
+    padding-right: -200px !important;
+    /* height: 70px;
+    width: 70x;
+    color: white;
+    text-decoration: none;
+    justify-content: space-around; */
+}
+
+.wd-nav-icon {
+    color: red;
+    position: fixed;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    /* flex-direction: column;
+    margin-left: 15px;
+    margin-top: 5px;*/
+}
+
+.wd-nav-selected {
+    height: 70px;
+    width: 70x;
+    background-color: white;
+    color: red;
+}
+
+.wd-nav-selected a {
+    color: red;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.wd-avoid-sidebar {
+    margin-left: 80px;
+    padding: 20px;
+}
+
+
+.wd-account-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 195px;
+    height: 100%;
+    background-color: white;
+    color: red;
+    text-decoration: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+}
+
+.wd-sel-acct a {
+    color: black;
+    text-decoration: none;
+}
+
+
+.wd-avoid-sidebars {
+    margin-left: 300px;
+    padding: 20px;
+}
+
+.wd-red-link a {
+    color: red;
+    text-decoration: none;
+}
+
+.largestfont {
+    color: black;
+    font-size: 35;
+
+}
+
+.margintwenty {
+    margin-top: 20px;
+}
+
+.profile-buttons {
+    color: black;
+    text-decoration: none;
+    background-color: whitesmoke;
+}
+
+.red-butt {
+    color: white;
+    text-decoration: none;
+    background-color: #e0061f;
+}
+
+.texbox-label {
+    display: block;
+    text-align: center
+}
+
+.txt-link {
+    display: block-inline;
+    white-space: nowrap
+}

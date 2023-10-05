@@ -1,93 +1,148 @@
-<table> 
-    <tr>
-        <td valign="top">
-            <ul>
-                <li><a href="/kanbas/profile/index.html">Account</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="/kanbas/home.html">Courses</a></li>
-                <li><a href="#">Calendar</a></li>
-                <li><a href="#">Inbox</a></li>
-                <li><a href="#">History</a></li>
-                <li><a href="#">Studio</a></li>
-                <li><a href="#">Commons</a></li>
-                <li><a href="#">Help</a></li>
-             </ul>
-        </td>
-        <td valign="top">
-            <ul>
-                <li> <a href="#">Notifications</a></li>
-                <li> <a href="/kanbas/profile/index.html">Profile</a></li>
-                <li> <a href="#">Files</a></li>
-                <li> <a href="#">Settings</a></li>
-                <li> <a href="#">ePortfolios</a></li>
-                <li> <a href="#">Shared Content</a></li>
-                <li> <a href="#">The Hub</a></li>
-                <li> <a href="#">Qwickly Course Tools</a></li>
-                <li> <a href="#">Global Announcements</a></li>
-             </ul>
-        </td>
-        <td>
-            <h1>Esther Ho</h1>
-            <table>
-                <tr>
-                    <td>
-                        Names:*
-                        <input name="name" value="Esther Ho">
-                        Pronouns:
-                        <select id="pronouns">
-                            <option>None</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <br/>
-                        Title:
-                        <input name="title">
-                    </td>
-                </tr>
-            </table>
-            
-            <h3>Contact</h3>
-            No registered services, you can add some on the <a href="#">settings</a> page.
-            <br/><br>
-            <h3>Biography</h3>
-            <textarea cols="40" rows="5">
-                Student at Northeastern University. Studying CS and Business.
-            </textarea>
-            <br/><br>
+<head>
+    <link href="/kanbas/profile/index.css" rel="stylesheet" />
+    <link href="/../vendors/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="/../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-            <h3>Links</h3>
-            <ul>
-                <li><a href="youtube.com">Youtube</a></li>
-            </ul>
-            <table>
-                <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>URL</th>
-                    <th></th>
-                </tr> 
-                </thead> 
-                <tbody>
-                    <tr>
-                        <td>
-                        <input value="Youtube">
-                        -->
-                        </td>
-                        <td>
-                        <input value="https://www.youtube.com">
-                        <a href="#">Remove</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button type="button">Add another link</button>
-            <br>
-            <form action="/kanbas/profile/index.html">
-                <a href="/kanbas/profile/index.html"> <button type="button">Cancel</a></button>
-                <a href="/kanbas/profile/index.html"> <button type="button">Save Profile</a></button>
-            </form>
-        </td>
-    </tr>
-</table>
+</head>
+
+
+<div class="wd-fixed-nav">
+    <div class="wd-nav-item wd-nav-selected">
+        <a href="/kanbas/profile/index.html">
+            <i class="fa fa-user wd-nav-icon"></i>
+            <br></br>
+            Account
+        </a>
+    </div>
+    <br></br>
+    <div class="wd-nav-item">
+        <a href="/kanbas/dashboard/dash.html">
+            <i class="fa fa-tachometer-alt wd-nav-icon"></i>
+            <br></br>
+            Dashboard
+        </a>
+    </div>
+    <br></br>
+    <div class="wd-nav-item">
+        <a href="/kanbas/home.html">
+            <i class="fa fa-book wd-nav-icon"></i>
+            <br></br>
+            Courses
+        </a>
+    </div>
+    <br></br>
+    <div class="wd-nav-item">
+        <a href="#">
+            <i class="fa fa-calendar wd-nav-icon"></i><br></br>
+            Calendar
+        </a>
+    </div>
+    <br></br>
+    <div class="wd-nav-item">
+        <a href="#"><i class="fa fa-inbox wd-nav-icon"></i><br></br>Inbox</a>
+    </div>
+    <br></br>
+    <div class="wd-nav-item">
+        <a href="#"><i class="fa fa-clock wd-nav-icon"></i><br></br>History</a>
+    </div>
+    <br></br>
+    <div class="wd-nav-item">
+        <a href="#"><i class="fa fa-play wd-nav-icon"></i><br></br>Studio</a>
+    </div>
+    <br></br>
+    <div class="wd-nav-item">
+        <a href="#"><i class="fa fa-question wd-nav-icon"></i><br></br>Help</a>
+    </div>
+</div>
+
+<div class="wd-avoid-sidebar wd-account-sidebar wd-red-link">
+    <a href="#">Notifications</a><br></br>
+    <a href="/kanbas/profile/index.html" style="color: black;">Profile</a><br></br>
+    <a href="#">Files</a><br></br>
+    <a href="#">Settings</a><br></br>
+    <a href="#">ePortfolios</a><br></br>
+    <a href="#">Shared Content</a><br></br>
+    <a href="#">The Hub</a><br></br>
+    <a href="#">Qwickly Course Tools</a><br></br>
+    <a href="#">Global Announcements</a><br></br>
+
+</div>
+
+<div class="wd-avoid-sidebars wd-red-link">
+    Esther Ho's Profile
+    <hr width="100%">
+    <div class="col-6">
+        <i class="fa fa-user fa-8x"></i>
+        <div class="col-12">
+            <a href="/kanbas/profile/index.html" class="btn btn-light float-end profile-buttons" style="color: black;">
+                Cancel Editing
+            </a>
+        </div>
+        <br /><br>
+        <form>
+            <label for="NAME" class="form-label">Name:*</label>
+            <br />
+            <input id="NAME" class="form-control" value="Esther Ho" />
+            <br />
+            <label for="PRONOUN" class="form-label">Pronouns:*</label>
+            <br />
+            <select id="PRONOUN" class="form-select">
+                <option selected>None</option>
+            </select>
+            <br />
+
+            <label for="NAME" class="form-label">Title:</label><br />
+            <input id="NAME" class="form-control" />
+        </form>
+
+        <div class="margintwenty">
+            <h3 class="largestfont">Contact</h3>
+            <p>
+                No registered services, you can add some on the
+                <a href="#" class="active">settings</a> page.
+            </p>
+        </div>
+        <div class="margintwenty">
+            <h3 class="largestfont">Biography</h3>
+            <textarea class="form-control" rows="3" style="display: block">
+                Student at Northeastern University. Studying CS and Business.
+              </textarea>
+        </div>
+
+        <div class="margintwenty">
+            <h2 class="largestfont">Links</h2>
+            <div class="row">
+                <div class="col-3">
+                    <div style="display: inline-block">
+                        <label for="NAME" class="form-label texbox-label">Title</label>
+                        <div class="row">
+                            <div class="col-10">
+                                <input id="NAME" class="form-control form-inline" value="Youtube"
+                                    style="display: inline-block" />
+                            </div>
+                            -->
+                        </div>
+                    </div> <br></br>
+                    <button class="btn" style="background-color: gainsboro; width: 160px;">
+                        Add Another Link
+                    </button>
+                </div>
+                <div class="col-3">
+                    <label for="NAME" class="prof-label form-label texbox-label">URL</label>
+                    <input id="NAME" class="form-control float-start txt-link"
+                        value="https://www.youtube.com/watch?v=xgY59LQfZSA" />
+                </div>
+            </div>
+
+            <hr />
+
+            <a href="/kanbas/profile/index.html" class="btn float-end red-butt"
+                style="background-color: red; color: white;">
+                Save Profile
+            </a>
+            <a href="/kanbas/profile/index.html" class="btn float-end profile-buttons" style="color: black;">
+                Cancel
+            </a>
+        </div>
+    </div>
+</div>
