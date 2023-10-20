@@ -1,5 +1,5 @@
 import Kanbas from "./Kanbas";
-import Labs from "./Labs"
+import Labs from "./Labs/"
 import HelloWorld from "./Labs/a3/HelloWorld";
 import logo from "./logo.svg";
 // import "./App.css";
@@ -12,7 +12,6 @@ function App() {
       <div>
         <Routes>
           <Route path="/" element={<Navigate to="/Labs" />} />
-
           <Route path="/hello" element={<HelloWorld />} />
           <Route path="/Labs/*" element={<Labs />} />
           <Route path="/Kanbas/*" element={<Kanbas />} />
