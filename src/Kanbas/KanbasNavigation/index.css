@@ -1,0 +1,39 @@
+.fixed-navbar {
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 110px;
+    padding: 2px;
+    background-color: black;
+    text-decoration: none;
+    margin-left: 1px;
+}
+
+.fixed-navbar .nav-item {
+  margin: 10px;
+  align-items: center;
+}
+
+.fixed-navbar .nav-link {
+  padding: 10px;
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.fixed-navbar .active {
+  background-color: white !important;
+  color: red !important;
+}
+
+.fixed-navbar .fa-icon {
+  color: red !important;
+  text-align: center;
+  font-size: 25px;
+}
+
+.fixed-navbar .white-selected {
+  color: white;
+}
+

@@ -1,0 +1,22 @@
+.modules {
+  width: 70vw;
+}
+
+.module-title {
+  background-color: white;
+  font-size: large;
+}
+
+.green-check {
+    color: green;
+    /* float: inline-end; */
+}
+
+.end-items {
+    float: inline-end;
+    color: gray;
+}
+
+.list-group-item-secondary {
+  width: 10;
+}

@@ -1,0 +1,32 @@
+.course-nav {
+  text-align: left;
+}
+
+.course-nav a.active {
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  border-radius: 0px;
+  border-left: 2px black solid;
+}
+
+.course-nav .list-group-item {
+  height: 40px;
+  border: none;
+  color: rgb(255, 0, 0);
+  padding-left: 5px;
+}
+
+.bredcrmb-formatting {
+    width: 100%;
+    color: black;
+}
+
+.red-icon {
+  color: red;
+}
+
+.breadcrumb .breadcrumb-item::before{
+  content: " > ";
+  color: black;
+}
