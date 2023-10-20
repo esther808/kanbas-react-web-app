@@ -45,11 +45,14 @@ function Home() {
                     <div style={{ width: "100%" }}>
                         <div>
                             <FaCheckCircle className="green-check" />
-                            <a className="ms-1 black-link" 
-                            // href="#"
+                            <button
+                                className="ms-1 black-link"
+                                onClick={() => {
+                                    // insert later
+                                }}
                             >
                                 Grade A1 - ENV + HTML
-                            </a>
+                            </button>
                             <div className="end-items">
                                 <span>X</span>
                             </div>
@@ -59,11 +62,15 @@ function Home() {
                     <div style={{ width: "100%" }}>
                         <div>
                             <FaCheckCircle className="green-check" />
-                            <a className="ms-1 black-link"
-                            // href="#"
+                            <button
+                                className="ms-1 black-link"
+                                onClick={() => {
+                                    // insert later
+                                }}
                             >
-                                Grade A2 - CSS
-                            </a>
+                            Grade A2 - CSS
+                            </button>
+                        
                             <div className="end-items">
                                 <span>X</span>
                             </div>
