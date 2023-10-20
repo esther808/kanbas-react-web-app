@@ -1,4 +1,218 @@
-<table> 
+<head>
+    <link href="/kanbas/index.css" rel="stylesheet" />
+    <link href="/vendors/fontawesome/css/all.css" rel="stylesheet" />
+    <link href="/vendors/fontawesome/css/all.min.css" rel="stylesheet" />
+    <link href="/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+
+
+<body>
+    <div class="flex-container">
+        <div class="row">
+            <div class="col-1 d-sm-none d-md-block">
+                <div class="wd-disappearing-nav">
+                    <div class="wd-nav-item">
+                        <a href="/kanbas/profile/index.html">
+                            <i class="fa fa-user wd-nav-icon"></i>
+                            <br></br>
+                            Account
+                        </a>
+                    </div>
+                    <br></br>
+                    <div class="wd-nav-item">
+                        <a href="/kanbas/dashboard/dash.html">
+                            <i class="fa fa-tachometer-alt wd-nav-icon"></i>
+                            <br></br>
+                            Dashboard
+                        </a>
+                    </div>
+                    <br></br>
+                    <div class="wd-nav-item wd-nav-selected">
+                        <a href="/kanbas/home.html">
+                            <i class="fa fa-book wd-nav-icon"></i>
+                            <br></br>
+                            Courses
+                        </a>
+                    </div>
+                    <br></br>
+                    <div class="wd-nav-item">
+                        <a href="#">
+                            <i class="fa fa-calendar wd-nav-icon"></i><br></br>
+                            Calendar
+                        </a>
+                    </div>
+                    <br></br>
+                    <div class="wd-nav-item">
+                        <a href="#"><i class="fa fa-inbox wd-nav-icon"></i><br></br>Inbox</a>
+                    </div>
+                    <br></br>
+                    <div class="wd-nav-item">
+                        <a href="#"><i class="fa fa-clock wd-nav-icon"></i><br></br>History</a>
+                    </div>
+                    <br></br>
+                    <div class="wd-nav-item">
+                        <a href="#"><i class="fa fa-play wd-nav-icon"></i><br></br>Studio</a>
+                    </div>
+                    <br></br>
+                    <div class="wd-nav-item">
+                        <a href="#"><i class="fa fa-question wd-nav-icon"></i><br></br>Help</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 wd-red-link" style="flex: 1">
+                <div class="row">
+                    <div style="margin: 20px" class="d-none d-md-none d-lg-block">
+                        <i class="fa fa-bars fa-2xs" style="color: #e0061f; white-space: nowrap"></i>
+                        &nbsp;
+                        <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '>'; display: inline-block">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/kanbas/home.html" class="active">CS4530.19753.202410</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Grades
+                                </li>
+                            </ol>
+                        </nav>
+                        <button class="btn btn-light float-end" style="margin-right: 40px">
+                            Student View
+                        </button>
+                    </div>
+                    <hr />
+                </div>
+
+                <div class="row">
+                    <div class="col-2 sidebar d-none d-md-none d-lg-block" style="width: 140px">
+                        <a href="/kanbas/home.html">Home</a><br />
+                        <a href="#">Modules</a><br />
+                        <a href="#">Piazza</a><br />
+                        <a href="#">Zoom Meetings</a><br />
+                        <a href="/kanbas/assignments/index.html">Assignments</a><br />
+                        <a href="#">Quizzes</a><br />
+                        <a href="/kanbas/grades.html" style="color: black; text-decoration: none;">Grades</a><br />
+                        <a href="#">People</a><br />
+                        <a href="#">Miscrosoft Team Meetings</a><br />
+                        <a href="#">FACT Reporter and Photo Roster</a><br />
+                        <a href="#">Announcements</a><br />
+                        <a href="#">Pages</a><br />
+                        <a href="#">Files</a><br />
+                        <a href="#">Rubrics</a><br />
+                        <a href="#">Outcomes</a><br />
+                    </div>
+
+
+
+
+                    <div class="col-8">
+                        <div class="row">
+                            <div style="display: inline; margin-bottom: 15px">
+                                <button class="btn btn-light float-end">
+                                    <i class="fas fa-cog fa-2xs" style="color: black"></i>
+                                </button>
+
+                                <div class="dropdown float-end" style="padding-left: 10px; padding-right: 10px">
+                                    <button class="btn btn-light dropdown-toggle" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-file-export fa-2xs" style="color: black"></i>
+                                        Export
+                                    </button>
+                                </div>
+
+                                <button class="btn btn-light float-end">
+                                    <i class="fas fa-file-import fa-2xs"></i>
+                                    Import
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-6">
+                                <label style="font-weight: bold">Student Names</label><br />
+                                <input type="search" style="margin-top: 10px" class="form-control"
+                                    placeholder="Search Students" aria-label="SearchStudents" />
+                            </div>
+
+                            <div class="col-6">
+                                <label style="font-weight: bold">Assignment Names</label><br />
+                                <input type="search" style="margin-top: 10px" class="form-control"
+                                    placeholder="Search Assignments" aria-label="SearchAssignments" />
+                            </div>
+                        </div>
+
+                        <button class="btn btn-light" style="margin-top: 10px">
+                            <i class="fas fa-filter"></i>
+                            Apply Filters
+                        </button>
+
+                        <div class="table-responsive-lg" style="margin-top: 20px">
+                            <table class="table table-striped"
+                                style="border: solid; border-color: lightgrey; text-align: center; ">
+                                <thead>
+                                    <tr>
+                                        <th>Student Name</th>
+                                        <th> A1 SETUP <br /> Out of 100 </th>
+                                        <th> A2 HTML<br /> Out of 100 </th>
+                                        <th> A3 CSS<br /> Out of 100 </th>
+                                        <th> A4 BOOTSTRAP<br /> Out of 100 </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="active" style="color: red">Alice Wonderland</td>
+                                        <td style="width: 15%;">
+                                            <input type="number" class="form-control" value="20" style="width: 60%" />
+                                        </td>
+                                        <td>50</td>
+                                        <td>75</td>
+                                        <td>99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="active" style="color: red">Bob the Builder</td>
+                                        <td>80</td>
+                                        <td>92</td>
+                                        <td>99</td>
+                                        <td>96</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="active" style="color: red">Flynn Ryder</td>
+                                        <td>20</td>
+                                        <td>15</td>
+                                        <td>6</td>
+                                        <td>40</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="active" style="color: red">Dora the Explorer</td>
+                                        <td>98.5</td>
+                                        <td>99</td>
+                                        <td>100</td>
+                                        <td>90</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <table> 
     <tr>
         <td valign="top">
             <ul>
@@ -95,4 +309,4 @@
             </table>
         </td>
     </tr>
-</table>
+</table> -->
