@@ -45,7 +45,9 @@ function Home() {
                     <div style={{ width: "100%" }}>
                         <div>
                             <FaCheckCircle className="green-check" />
-                            <a className="ms-1 black-link" href="#">
+                            <a className="ms-1 black-link" 
+                            // href="#"
+                            >
                                 Grade A1 - ENV + HTML
                             </a>
                             <div className="end-items">
@@ -57,7 +59,9 @@ function Home() {
                     <div style={{ width: "100%" }}>
                         <div>
                             <FaCheckCircle className="green-check" />
-                            <a className="ms-1 black-link" href="#">
+                            <a className="ms-1 black-link"
+                            // href="#"
+                            >
                                 Grade A2 - CSS
                             </a>
                             <div className="end-items">

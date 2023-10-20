@@ -9,7 +9,6 @@ import {
   FaQuestion,
   FaTachometerAlt,
   FaPlay,
-  FaIcons,
 } from 'react-icons/fa';
 import "./index.css";
 
