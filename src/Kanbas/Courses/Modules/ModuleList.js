@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { VscGripper } from "react-icons/vsc";
 import { BiCaretDown } from "react-icons/bi";
-import { FaCheckCircle, FaEllipsisV, FaPlus } from "react-icons/fa";
-import db from "../../Database";
+import { FaCheckCircle, FaEllipsisV, FaPlus } from "react-icons/fa";\
 import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
 
