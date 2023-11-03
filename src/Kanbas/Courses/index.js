@@ -6,9 +6,9 @@ import Modules from "./Modules";
 import Home from "./home";
 
 
-function Courses() {
+function Courses({ courses }) {
     const { courseId } = useParams();
-    const course = db.courses.find((course) => course._id === courseId);
+    const course = courses.find((course) => course._id === courseId);
     return (
         <div>
             <nav aria-label="breadcrumb">

@@ -1,62 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { VscGripper } from "react-icons/vsc";
 import { BiCaretDown } from "react-icons/bi";
 import { FaCheckCircle, FaEllipsisV, FaPlus } from "react-icons/fa";
 import db from "../../Database";
 import "./index.css";
+import { useSelector, useDispatch } from "react-redux";
 
+import {
+  addModule,
+  deleteModule,
+  updateModule,
+  setModule,
+} from "./modulesReducer";
 function ModuleList() {
-    const { courseId } = useParams();
-    const modules = db.modules;
+  const { courseId } = useParams();
+  const modules = useSelector((state) => state.modulesReducer.modules);
+  const module = useSelector((state) => state.modulesReducer.module);
+  const dispatch = useDispatch();
+
     return (
-        <div>
-            <div style={{ paddingRight: 300 }}>
-                <button className="btn btn-light float-end" style={{ margin: 3 }}>
-                    <FaEllipsisV /> {/* Use the ellipsis icon */}
-                </button>
-                <button className="btn btn-danger float-end" style={{ margin: 3 }}>
-                    + Module
-                </button>
+        <div className="col-12">
+            {/* <hr style={{ width: 100 }}></hr> */}
 
-                <div className="dropdown">
-                    <button className="btn btn-light dropdown-toggle float-end" style={{ margin: 3 }}>
-                        Publish All
+            <ul className="list-group">
+                <li className="list-group-item">
+                    <button
+                        className="btn btn-success space float-end"
+                        onClick={() => dispatch(addModule({ ...module, course: courseId }))}
+                    >
+                        Add
                     </button>
-                </div>
+                    <button
+                        className="btn btn-info space float-end"
+                        onClick={() => dispatch(updateModule(module))}
+                    >
+                        Update
+                    </button>
+                    <input className="space text-width" 
+                        value={module.name}
+                        onChange={(e) =>
+                            dispatch(setModule({ ...module, name: e.target.value }))
+                        }
+                    />
+                    <textarea className="space text-width"
+                        value={module.description}
+                        onChange={(e) =>
+                            dispatch(setModule({ ...module, description: e.target.value }))
+                        }
+                    />
+                </li>
 
-                <button className="btn btn-light float-end" style={{ margin: 3 }}>
-                    View Progress
-                </button>
-                <button className="btn btn-light float-end" style={{ margin: 3 }}>
-                    Collapse All
-                </button>
-            </div>
-            <br></br>
-            <br></br>
-            <hr style={{ width: 1500 }}></hr>
-
-
-
-            {modules
-                .filter((module) => module.course === courseId)
-                .map((module, index) => (
-                    <div key={index} className="list-group modules mt-4">
-                        <li className="list-group-item module-title" style={{ width: "1100px", paddingRight: "10px" }}>
+                {modules
+                    .filter((module) => module.course === courseId)
+                    .map((module, index) => (
+                        <li key={index} className="list-group-item">
                             <VscGripper size="20" />
                             <BiCaretDown size="10" />
-                            {module.name} {module.description}
-
-                            <div className="end-items">
+                            <div class="float-end">
+                                <button
+                                    className="btn btn-success space"
+                                    onClick={() => dispatch(setModule(module))}
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    className="btn btn-danger space"
+                                    onClick={() => dispatch(deleteModule(module._id))}
+                                >
+                                    Delete
+                                </button>
                                 <FaCheckCircle className="green-check" size="20" />
                                 <BiCaretDown size="10" />
                                 <FaPlus size="20" />
                                 <FaEllipsisV size="20" />
                             </div>
+                            <h3>{module.name}</h3>
+                            <p>{module.description}</p>
                         </li>
-                    </div>
-                ))
-            }
+                    ))}
+
+            </ul>
         </div>
     );
 }

@@ -20,3 +20,11 @@
 .list-group-item-secondary {
   width: 10;
 }
+
+.space {
+  margin: 2px;
+}
+
+.text-width {
+  width: 40%;
+}
