@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { VscGripper } from "react-icons/vsc";
 import { BiCaretDown } from "react-icons/bi";
@@ -7,16 +7,40 @@ import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  addModule,
-  deleteModule,
-  updateModule,
-  setModule,
+    addModule,
+    deleteModule,
+    updateModule,
+    setModule,
+    setModules,
 } from "./modulesReducer";
+import { findModulesForCourse, createModule } from "./client.js";
 function ModuleList() {
-  const { courseId } = useParams();
-  const modules = useSelector((state) => state.modulesReducer.modules);
-  const module = useSelector((state) => state.modulesReducer.module);
-  const dispatch = useDispatch();
+    const { courseId } = useParams();
+    useEffect(() => {
+        findModulesForCourse(courseId)
+            .then((modules) =>
+                dispatch(setModules(modules))
+            );
+    }, [courseId]);
+    const handleAddModule = () => {
+        createModule(courseId, module).then((module) => {
+            dispatch(addModule(module));
+        });
+    };
+    const handleUpdateModule = async () => {
+        const status = await client.updateModule(module);
+        dispatch(updateModule(module));
+    };
+    const handleDeleteModule = (moduleId) => {
+        client.deleteModule(moduleId).then((status) => {
+            dispatch(deleteModule(moduleId));
+        });
+    };
+
+
+    const modules = useSelector((state) => state.modulesReducer.modules);
+    const module = useSelector((state) => state.modulesReducer.module);
+    const dispatch = useDispatch();
 
     return (
         <div className="col-12">
@@ -26,7 +50,7 @@ function ModuleList() {
                 <li className="list-group-item">
                     <button
                         className="btn btn-success space float-end"
-                        onClick={() => dispatch(addModule({ ...module, course: courseId }))}
+                        onClick={handleAddModule}
                     >
                         Add
                     </button>
@@ -36,7 +60,7 @@ function ModuleList() {
                     >
                         Update
                     </button>
-                    <input className="space text-width" 
+                    <input className="space text-width"
                         value={module.name}
                         onChange={(e) =>
                             dispatch(setModule({ ...module, name: e.target.value }))
@@ -65,7 +89,7 @@ function ModuleList() {
                                 </button>
                                 <button
                                     className="btn btn-danger space"
-                                    onClick={() => dispatch(deleteModule(module._id))}
+                                    onClick={() => handleDeleteModule(module._id)}
                                 >
                                     Delete
                                 </button>
