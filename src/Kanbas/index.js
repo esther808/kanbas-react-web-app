@@ -7,55 +7,63 @@ import Courses from "./Courses";
 import { useState, useEffect } from "react";
 import store from "./store";
 import { Provider } from "react-redux";
-import axios from "axios";
+import * as service from "./service";
 
 function Kanbas() {
-  const [courses, setCourses] = useState([]);
-  const URL = "http://localhost:4001/api/courses";
-  const findAllCourses = async () => {
-    const response = await axios.get(URL);
-    setCourses(response.data);
+   const [courses, setCourses] = useState([]);
+  const [course, setCourse] = useState({
+    name: "New Course",
+    number: "New Course Number",
+    startDate: new Date(),
+    endDate: new Date(),
+  });
+
+  const init = async () => {
+    const courses = await service.fetchCourses();
+    setCourses(courses);
   };
+
   useEffect(() => {
-    findAllCourses();
+    init();
   }, []);
 
-  const [course, setCourse] = useState({
-    name: "New Course", number: "New Number",
-    startDate: "2023-09-10", endDate: "2023-12-15",
-  });
-  const addNewCourse = async () => {
-    const response = await axios.post(URL, course);
-    setCourses([
-      response.data,
-      ...courses,
-    ]);
-    setCourse({ name: "" });
+  const addCourse = async () => {
+    try {
+      const newCourse = await service.addCourse(course);
+      setCourses([newCourse, ...courses]);
+      // setCourses([
+      //   { ...course, _id: new Date().getTime().toString() },
+      //   ...courses,
+      // ]);
+      setCourse({ name: "" });
+    } catch (error) {
+      console.log(error);
+    }
   };
   const deleteCourse = async (course) => {
-    await axios.delete(
-      `${URL}/${course._id}`
-    );
-    setCourses(courses.filter(
-      (c) => c._id !== course._id));
+    try {
+      await service.deleteCourse(course);
+      setCourses(courses.filter((c) => c._id !== course._id));
+    } catch (error) {
+      console.log(error);
+    }
   };
-
   const updateCourse = async (course) => {
-    await axios.put(
-      `${URL}/${course._id}`,
-      course
-    );
-    setCourses(
-      courses.map((c) => {
-        if (c._id === course._id) {
-          return course;
-        }
-        return c;
-      })
-    );
-    setCourse({ name: "" });
+    try {
+      await service.updateCourse(course);
+      setCourses(
+        courses.map((c) => {
+          if (c._id === course._id) {
+            return course;
+          }
+          return c;
+        })
+      );
+      setCourse({ name: "" });
+    } catch (error) {
+      console.log(error);
+    }
   };
-
 
   return (
     <Provider store={store}>

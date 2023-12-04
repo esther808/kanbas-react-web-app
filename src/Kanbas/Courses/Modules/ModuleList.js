@@ -13,34 +13,44 @@ import {
     setModule,
     setModules,
 } from "./modulesReducer";
-import { findModulesForCourse, createModule } from "./client.js";
+import * as client from "./client.js";
+
 function ModuleList() {
     const { courseId } = useParams();
-    useEffect(() => {
-        findModulesForCourse(courseId)
-            .then((modules) =>
-                dispatch(setModules(modules))
-            );
-    }, [courseId]);
-    const handleAddModule = () => {
-        createModule(courseId, module).then((module) => {
-            dispatch(addModule(module));
-        });
-    };
-    const handleUpdateModule = async () => {
-        const status = await client.updateModule(module);
-        dispatch(updateModule(module));
-    };
-    const handleDeleteModule = (moduleId) => {
-        client.deleteModule(moduleId).then((status) => {
-            dispatch(deleteModule(moduleId));
-        });
-    };
-
-
     const modules = useSelector((state) => state.modulesReducer.modules);
     const module = useSelector((state) => state.modulesReducer.module);
     const dispatch = useDispatch();
+
+    const fetchModulesForCourse = async (courseId) => {
+    const modules = await client.findModulesForCourse(courseId);
+    dispatch(setModules(modules));
+  };
+
+  useEffect(() => {
+    fetchModulesForCourse(courseId);
+  }, [courseId]);
+
+  const handleAddModule = async (module) => {
+    try {
+      const newModule = await client.createModule(courseId, module);
+      dispatch(addModule(newModule));
+      dispatch(setModule({ name: "", description: "" }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDeleteModule = async (moduleId) => {
+    try {
+      await client.deleteModule(moduleId);
+      dispatch(deleteModule(moduleId));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
 
     return (
         <div className="col-12">
