@@ -3,7 +3,7 @@ import Labs from "./Labs/"
 import HelloWorld from "./Labs/a3/HelloWorld";
 // import "./App.css";
 import { HashRouter } from "react-router-dom";
-import { Routes, Route, Navigate } from "react-router";
+import { Routes, Route} from "react-router";
 // import express from 'express';
 // import Hello from './hello.js';
 // import Lab5 from "./lab5.js";
