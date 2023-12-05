@@ -78,7 +78,7 @@ function Kanbas() {
                 courses={courses}
                 course={course}
                 setCourse={setCourse}
-                addNewCourse={addNewCourse}
+                addCourse={addCourse}
                 deleteCourse={deleteCourse}
                 updateCourse={updateCourse} />
             } />

@@ -3,7 +3,8 @@ import Labs from "./Labs/"
 import HelloWorld from "./Labs/a3/HelloWorld";
 // import "./App.css";
 import { HashRouter } from "react-router-dom";
-import { Routes, Route} from "react-router";
+import { Routes, Route, Navigate } from "react-router";
+import Project from "./project";
 // import express from 'express';
 // import Hello from './hello.js';
 // import Lab5 from "./lab5.js";
@@ -21,31 +22,41 @@ import { Routes, Route} from "react-router";
 // Hello(app)
 // app.listen(4001)
 
+
 function App() {
-  const screen = "labs";
   return (
     <HashRouter>
       <div>
-        <div className="list-group">
-          <Link className="list-group-item" to="/Labs">
-            Labs
-          </Link>
-          <Link className="list-group-item" to="/hello">
-            Hello
-          </Link>
-          <Link className="list-group-item" to="/kanbas">
-            Kanbas
-          </Link>
-        </div>
         <Routes>
-          <Route path="/Labs/*" element={<Labs />} />
-          <Route path="/Kanbas/*" element={<Kanbas />} />
+          <Route path="/" element={<Navigate to="/Labs" />} />
+          <Route path="/project/*" element={<Project />} />
           <Route path="/hello" element={<HelloWorld />} />
+          <Route path="/Labs/*" element={<Labs />} />
+          <Route path="/kanbas/*" element={<Kanbas />} />
         </Routes>
       </div>
     </HashRouter>
   );
 }
+export default App;
+
+
+// function App() {
+//   // const screen = "labs";
+//   return (
+//     <HashRouter>
+//       <div>
+//         <Routes>
+//           {/* <Route path="/" element={<Navigate to="project" />} /> */}
+//           <Route path="/project/*" element={<Project />} />
+//           <Route path="/Labs/*" element={<Labs />} />
+//           <Route path="/Kanbas/*" element={<Kanbas />} />
+//           <Route path="/hello" element={<HelloWorld />} />
+//         </Routes>
+//       </div>
+//     </HashRouter>
+//   );
+// }
 
 
 // function App() {
@@ -53,7 +64,8 @@ function App() {
 //     <HashRouter>
 //       <div>
 //         <Routes>
-//           <Route path="/" element={<Navigate to="/Labs" />} />
+//           {/* <Route path="/" element={<Navigate to="/Labs" />} /> */}
+//           <Route path="/project/*" element={<Project />} />
 //           <Route path="/hello" element={<HelloWorld />} />
 //           <Route path="/Labs/*" element={<Labs />} />
 //           <Route path="/Kanbas/*" element={<Kanbas />} />
@@ -63,4 +75,4 @@ function App() {
 //   );
 // }
 
-export default App;
+// export default App;
