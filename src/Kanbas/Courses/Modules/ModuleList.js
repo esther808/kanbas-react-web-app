@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { VscGripper } from "react-icons/vsc";
 import { BiCaretDown } from "react-icons/bi";
@@ -22,32 +22,36 @@ function ModuleList() {
     const dispatch = useDispatch();
 
     const fetchModulesForCourse = async (courseId) => {
-    const modules = await client.findModulesForCourse(courseId);
-    dispatch(setModules(modules));
-  };
+        const modules = await client.findModulesForCourse(courseId);
+        dispatch(setModules(modules));
+    };
 
-  useEffect(() => {
-    fetchModulesForCourse(courseId);
-  }, [courseId]);
+    // useEffect(() => {
+    //     fetchModulesForCourse(courseId);
+    // }, [courseId]);
+    useEffect(() => {
+        fetchModulesForCourse(courseId);
+    }, [courseId, fetchModulesForCourse]);
 
-  const handleAddModule = async (module) => {
-    try {
-      const newModule = await client.createModule(courseId, module);
-      dispatch(addModule(newModule));
-      dispatch(setModule({ name: "", description: "" }));
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
-  const handleDeleteModule = async (moduleId) => {
-    try {
-      await client.deleteModule(moduleId);
-      dispatch(deleteModule(moduleId));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    const handleAddModule = async (module) => {
+        try {
+            const newModule = await client.createModule(courseId, module);
+            dispatch(addModule(newModule));
+            dispatch(setModule({ name: "", description: "" }));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleDeleteModule = async (moduleId) => {
+        try {
+            await client.deleteModule(moduleId);
+            dispatch(deleteModule(moduleId));
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
 
 
