@@ -5,8 +5,8 @@ import { useDispatch } from "react-redux";
 
 function Account() {
     const [user, setUser] = useState(null);
-    const [following, setFollowing] = useState([]);
-    const dispatch = useDispatch();
+    // const [following, setFollowing] = useState([]);
+    // const dispatch = useDispatch();
 
     const navigate = useNavigate();
     const fetchUser = async () => {

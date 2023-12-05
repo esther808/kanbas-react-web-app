@@ -38,14 +38,23 @@ function UserTable() {
             console.log(err);
         }
     };
+    // const updateUser = async () => {
+    //     try {
+    //         const status = await client.updateUser(user);
+    //         setUsers(users.map((u) => (u._id === user._id ? user : u)));
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
     const updateUser = async () => {
         try {
-            const status = await client.updateUser(user);
+            await client.updateUser(user);
             setUsers(users.map((u) => (u._id === user._id ? user : u)));
         } catch (err) {
             console.log(err);
         }
     };
+
 
 
     return (
